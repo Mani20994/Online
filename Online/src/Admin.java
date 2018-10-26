@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -6,10 +7,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class Admin {
-	@Test
+	@Test(priority=0)
 	public void create_restaurant() throws InterruptedException, IOException {
 	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
 	WebDriver driver=new ChromeDriver();
@@ -125,18 +127,26 @@ public class Admin {
 			driver.findElement(By.xpath("//button[contains(text(),'Publish')]")).click();
 			
 			//Restaurant Images
-			driver.findElement(By.xpath("//tr[@id='jqRecord_43']//td[5]")).click();
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[5]/a[1]")).click();
 			
 			//Add Record
 			driver.findElement(By.xpath("//a[@class='addrecord btn btn-info']")).click();
 			
 			WebElement upload=driver.findElement(By.xpath("//input[@id='photo_id']"));
-			upload.sendKeys("E:\\Restraunts _images");
+			upload.sendKeys("E:\\r2.jpg");
 			driver.findElement(By.xpath("//input[@id='is_cover_photo']")).click();
 			driver.findElement(By.xpath("//input[@id='jqSubmitForm']")).click();
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//button[contains(text(),'Publish')]")).click();
+			
+			//restaurant
+			driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+			
 			
 			//Menu
-			driver.findElement(By.xpath("//tr[@id='jqRecord_33']//td[6]")).click();
+			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[6]/a[1]")).click();
 			
 			//Add Record
 			driver.findElement(By.xpath("//a[@class='addrecord btn btn-info']")).click();
@@ -158,16 +168,19 @@ public class Admin {
 			
 			//Save
 			driver.findElement(By.xpath("//input[@id='jqSubmitForm']")).click();
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 			
 			//Publish
 			driver.findElement(By.xpath("//button[contains(text(),'Publish')]")).click();
-			
-			//Orders
-			driver.findElement(By.xpath("//tr[@id='jqRecord_33']//td[7]")).click();
 			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 			
+			//restaurant
+			driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+			
+						
 			//Food Items
-			driver.findElement(By.xpath("//tr[@id='jqRecord_33']//td[8]")).click();
+			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[8]/a[1]")).click();
 			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 			
 			//Add Food Item
@@ -183,7 +196,7 @@ public class Admin {
 			driver.findElement(By.xpath("//textarea[contains(@placeholder,'Food Item Description*')]")).sendKeys("South Indian Breakfast");
 			
 			//Add to Menu
-			driver.findElement(By.xpath("//a[contains(text(),'here')]")).click();
+			driver.findElement(By.xpath("//input[@id='menus']")).click();
 			
 			//Food Item Price
 			
@@ -201,20 +214,183 @@ public class Admin {
 			driver.findElement(By.xpath("//select[@id='activity_discount_type']")).click();
 			driver.findElement(By.xpath("//select[@id='activity_discount_type']/option[2]")).click();
 			driver.findElement(By.xpath("//input[@id='activity_discount']")).sendKeys("$5");
-			
-			
-			//Food Category
-			driver.findElement(By.xpath("//div[@class='controls']//ul[@class='token-input-list-facebook']")).click();
-			//driver.findElement(By.xpath("//input[@id='token-input-food_category']")).sendKeys("Burger");
-			driver.findElement(By.xpath("//li[@class='token-input-token-facebook']")).click();
+			Thread.sleep(25000);
 			
 			//Save
 			driver.findElement(By.xpath("//input[@value='Save']")).click();
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 			
+			//restaurant
+			driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
 			
+			//Logout
+			driver.findElement(By.xpath("//a[@class='icon_logout']")).click();
+			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+			
+													
+	}
+
+	//End User
+	
+	@Test(priority=1)
+	public void search_restaurant() throws InterruptedException, IOException {
+	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.manage().window().maximize();
+	
+	driver.get("https://www.demo.iscripts.com/netmenus/mrml");
+	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+	
+	
+	//Login
+	driver.findElement(By.xpath("/html[1]/body[1]/div[1]/nav[1]/div[1]/div[2]/div[2]/a[1]")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	//email
+	driver.findElement(By.xpath("//input[@placeholder='Email']")).sendKeys("user@netmenus.com");
+	//Password
+	driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("pass");
+	//button
+	driver.findElement(By.xpath("//input[@value='Login']")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	driver.findElement(By.xpath("//input[@class='textfield ui-autocomplete-input']")).sendKeys("Chicago");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//div[@class='col-md-6']//input[@id='search_keyword']")).sendKeys("Brew");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	driver.findElement(By.xpath("//input[@id='Submit']")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Scroll down
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	js.executeScript("window.scrollBy(200,500)");
+	System.out.println("scrolled Down");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Big Basket Restaurant
+	driver.findElement(By.xpath("//li[@id='13.004*77.6878']//a[@class='book_it'][contains(text(),'Go To Menu')]")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Scroll down
+	JavascriptExecutor js1=(JavascriptExecutor)driver;
+	js1.executeScript("window.scrollBy(200,400)");
+	System.out.println("scrolled Down");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Add Menu Item
+	driver.findElement(By.xpath("//div[@id='123']//div[2]//div[1]//div[1]//div[2]//div[1]//div[2]//div[1]//a[1]//img[1]")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Add to Order
+	driver.findElement(By.xpath("//div[@id='fade_123_304']//div[@id='divskip']")).click();
+	
+	//Proceed to Check Out
+	driver.findElement(By.xpath("//a[@id='jQOrderFn']")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Delivery Address
+	driver.findElement(By.xpath("//span[contains(text(),'Delivery Address')]")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Shipping Address
+	//First name
+	driver.findElement(By.xpath("//form[@id='frmcheckout']//div[1]//div[1]//input[1]")).sendKeys("");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	//Last name
+	driver.findElement(By.xpath("//form[@id='frmcheckout']//div[1]//div[1]//input[2]")).sendKeys("");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Scroll down
+	JavascriptExecutor js11=(JavascriptExecutor)driver;
+	js11.executeScript("window.scrollBy(200,400)");
+	System.out.println("scrolled Down");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Email
+	driver.findElement(By.xpath("//form[@id='frmcheckout']//div[1]//div[1]//input[3]")).sendKeys("");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	//Phone
+	driver.findElement(By.xpath("//form[@id='frmcheckout']//div[1]//div[1]//input[4]")).sendKeys("9876543210");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Billing Address
+	driver.findElement(By.xpath("//input[@type='checkbox']")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Save
+	driver.findElement(By.xpath("//input[@value='Continue']")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Reviews Order
+	
+	//Scroll down
+	JavascriptExecutor js111=(JavascriptExecutor)driver;
+	js111.executeScript("window.scrollBy(200,700)");
+	System.out.println("scrolled Down");
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Order Now
+	driver.findElement(By.xpath("//input[@value='Order now']")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Back to Home
+	driver.findElement(By.xpath("//a[contains(text(),'Back to Home')]")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	//Logout
+	driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
+	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+	}
+	
+	//Admin View Order
+	
+	@Test(priority=2)
+	public void view_order() throws InterruptedException, IOException {
+	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+	WebDriver driver=new ChromeDriver();
+	driver.manage().window().maximize();
+
+	driver.get("https://www.demo.iscripts.com/netmenus/mrml/admin");
+	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+	    
+		//email
+		driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
+		//Password
+		driver.findElement(By.xpath("//input[@id='inputPassword']")).sendKeys("admin");
+		//button
+		driver.findElement(By.xpath("//button[@value='submit']")).click();
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		//Restaurant details
+		//restaurant
+		driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+		
+		//Orders
+		driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?parent_section=restaurant&parent_id=23&section=bookings']")).click();
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 		
 			
-			
+		//Ordered Items
+		driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[2]/td[7]/a[1]")).click();
+		driver.manage().timeouts().implicitlyWait(8,TimeUnit.SECONDS);
+		
+		//Back
+		driver.findElement(By.xpath("//a[@class='jhistoryBack']")).click();
+		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+		
+		//restaurant
+		driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
+		
+		//Logout
+		driver.findElement(By.xpath("//a[@class='icon_logout']")).click();
+		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	
+		
+	
 	}
 }
-			
+
+	
