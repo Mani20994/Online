@@ -8,18 +8,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class Admin {
-	@Test(priority=0)
-	public void create_restaurant() throws InterruptedException, IOException {
-	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-	WebDriver driver=new ChromeDriver();
-	driver.manage().window().maximize();
+ 	
+ 	public class Online_foodorder {
 	
-	driver.get("https://www.demo.iscripts.com/netmenus/mrml/admin");
-	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
-		    
+ 		WebDriver driver= new ChromeDriver();
+	
+ 		@BeforeTest
+
+		public void admin() throws InterruptedException, IOException {
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		
+			//Url
+		
+			driver.get("https://www.demo.iscripts.com/netmenus/mrml/");
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+			//Title
+			String actualtitle=driver.getTitle();
+			System.out.println("The title of the page is:"+actualtitle);
+ 		}
+			
+ 			@Test(priority=0)
+			public void admin_login() throws InterruptedException, IOException {
+ 				//Url
+ 				driver.manage().window().maximize();
+ 				driver.get("https://www.demo.iscripts.com/netmenus/mrml/admin");
+ 				driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
+ 				//Title
+ 				String actualtitle=driver.getTitle();
+ 				System.out.println("The title of the page is:"+actualtitle);
 			//email
 			driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
 			//Password
@@ -27,7 +47,7 @@ public class Admin {
 			//button
 			driver.findElement(By.xpath("//button[@value='submit']")).click();
 			driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
-			
+
 			//Restaurant details
 			//restaurant
 			driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
@@ -153,7 +173,6 @@ public class Admin {
 			
 			
 			//Add Menu
-			
 			//Menu
 			driver.findElement(By.xpath("//input[@id='class_name']")).sendKeys("Breakfast");
 			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
@@ -227,16 +246,16 @@ public class Admin {
 			//Logout
 			driver.findElement(By.xpath("//a[@class='icon_logout']")).click();
 			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-			
+			driver.close();
 													
 	}
 
 	//End User
 	
 	@Test(priority=1)
+	
 	public void search_restaurant() throws InterruptedException, IOException {
 	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
-	WebDriver driver=new ChromeDriver();
 	driver.manage().window().maximize();
 	
 	driver.get("https://www.demo.iscripts.com/netmenus/mrml");
@@ -340,7 +359,7 @@ public class Admin {
 	//Logout
 	driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
 	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-	
+	driver.close();
 	}
 	
 	//Admin View Order
@@ -387,10 +406,12 @@ public class Admin {
 		//Logout
 		driver.findElement(By.xpath("//a[@class='icon_logout']")).click();
 		driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-	
-		
+	}
+	@AfterTest()
+	public void quit(){
+	driver.close();
 	
 	}
-}
+ 	}
 
 	
