@@ -7,7 +7,7 @@
         <methods>
           <include name="admin"/>
           <include name="admin_login"/>
-          <include name="quit"/>
+          <include name="close"/>
           <include name="search_restaurant"/>
           <include name="view_order"/>
         </methods>
