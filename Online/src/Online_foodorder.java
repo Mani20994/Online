@@ -280,7 +280,7 @@ WebDriver driver=new ChromeDriver();
 					driver.manage().timeouts().implicitlyWait(8,TimeUnit.SECONDS);
 					
 					//Alerts
-					driver.switchTo().alert().dismiss();
+					driver.switchTo().alert().accept();
 	}
 
 //End User
