@@ -10,7 +10,7 @@ public class fb {
  public void testCase1() {
   System.out.println("This is the Test Case 1");
   
-  System.setProperty("webdriver.firefox.driver","C:\\geckodriver.exe");
+  System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
 	WebDriver driver= new FirefoxDriver();
 	   
 	driver.manage().window().maximize();

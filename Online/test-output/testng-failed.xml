@@ -1,16 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test thread-count="5" name="Test(failed)" parallel="classes">
     <classes>
+      <class name="fb">
+        <methods>
+          <include name="testCase1"/>
+        </methods>
+      </class> <!-- fb -->
+      <class name="Online_foodorder">
+        <methods>
+          <include name="create_restaurant"/>
+          <include name="close"/>
+          <include name="Admin_Login"/>
+          <include name="search_restaurant"/>
+          <include name="view_order"/>
+        </methods>
+      </class> <!-- Online_foodorder -->
+      <class name="onlineak">
+        <methods>
+          <include name="create_restaurant"/>
+          <include name="close"/>
+          <include name="view_order"/>
+          <include name="AdmLogin"/>
+          <include name="search_restaurant"/>
+        </methods>
+      </class> <!-- onlineak -->
       <class name="Real_Estate_Script">
         <methods>
+          <include name="Agent"/>
           <include name="Admin1"/>
           <include name="User"/>
+          <include name="Admin"/>
           <include name="close"/>
           <include name="Agent_Login"/>
         </methods>
       </class> <!-- Real_Estate_Script -->
+      <class name="Chrome">
+        <methods>
+          <include name="skip"/>
+          <include name="main"/>
+        </methods>
+      </class> <!-- Chrome -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

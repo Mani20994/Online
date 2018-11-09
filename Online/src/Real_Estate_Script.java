@@ -221,27 +221,27 @@ public class Real_Estate_Script {
     				driver.findElement(By.cssSelector(".btn.btn-bordered.btn-primary.pull-right")).click();
     				
         
-    				//Properties
+    		//Properties
     				driver.findElement(By.xpath(".//*[@id='sidebar_left']/div[1]/ul/li[5]/a")).click();
     				Thread.sleep(5000);
     			
     				
-    				//Properties Listing
+    		//Properties Listing
     				driver.findElement(By.xpath(".//*[@id='sidebar_left']/div[1]/ul/li[5]/ul/li[1]/a")).click();
     				Thread.sleep(5000);
     				
-    				//Page No
+    		//Page No
     				driver.findElement(By.xpath(".//*[@id='datatable2_paginate']/ul/li[2]/a")).click();
     				Thread.sleep(3000);
     				
-    				//Enable Status
+    		//Enable Status
     				driver.findElement(By.xpath("//tbody//tr[5]//td[5]//a[1]//img[1]")).click();
     				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
     				
     			    				
         }
     
-        //User Searches Property
+			//User Searches Property
 		
 			@Test(priority=2)
             public void User() throws InterruptedException {
@@ -252,27 +252,27 @@ public class Real_Estate_Script {
         		driver.get("http://real-estate.itechscripts.com");
         		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
         		
-        		// Login
+        				// Login
         				driver.findElement(By.xpath("/html[1]/body[1]/div[1]/header[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]")).click();
         				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         				
-        			//Enter User E-mail Address	
+        				//Enter User E-mail Address	
         				driver.findElement(By.xpath("//*[@id='login_username']")).clear();
         				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
         				driver.findElement(By.xpath("//*[@id='login_username']")).sendKeys("userdemo@yourmail.com");
         				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;	
-        		//Password
+        				//Password
         				driver.findElement(By.xpath("//*[@id='login_password']")).clear();
         				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
         				driver.findElement(By.xpath("//*[@id='login_password']")).sendKeys("userdemo");
         				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         				
-        		//button
+        				//button
         				driver.findElement(By.xpath(".//*[@id='content']/div/div/div/div[2]/form/button")).click();
         				driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         				
         				
-        		//Alert
+        				//Alert
         				Thread.sleep(5000);
         				driver.switchTo().alert().dismiss();
         				

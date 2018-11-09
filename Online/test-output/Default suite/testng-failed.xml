@@ -5,8 +5,10 @@
     <classes>
       <class name="Real_Estate_Script">
         <methods>
+          <include name="Agent"/>
           <include name="Admin1"/>
           <include name="User"/>
+          <include name="Admin"/>
           <include name="close"/>
           <include name="Agent_Login"/>
         </methods>

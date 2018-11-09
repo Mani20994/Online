@@ -1,37 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="171632" started-at="2018-11-08T06:20:09Z" finished-at="2018-11-08T06:23:00Z">
+  <suite name="Suite" duration-ms="75061" started-at="2018-11-09T06:50:57Z" finished-at="2018-11-09T06:52:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="171632" started-at="2018-11-08T06:20:09Z" finished-at="2018-11-08T06:23:00Z">
-      <class name="Real_Estate_Script">
-        <test-method status="PASS" signature="Agent_Login()[pri:0, instance:Real_Estate_Script@57a78e3]" name="Agent_Login" is-config="true" duration-ms="33009" started-at="2018-11-08T06:20:09Z" finished-at="2018-11-08T06:20:42Z">
+    <test name="Test" duration-ms="75061" started-at="2018-11-09T06:50:57Z" finished-at="2018-11-09T06:52:12Z">
+      <class name="Chrome">
+        <test-method status="PASS" signature="main()[pri:0, instance:Chrome@e320068]" name="main" duration-ms="44011" started-at="2018-11-09T06:50:57Z" finished-at="2018-11-09T06:51:41Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Agent_Login -->
-        <test-method status="PASS" signature="Agent()[pri:0, instance:Real_Estate_Script@57a78e3]" name="Agent" duration-ms="50282" started-at="2018-11-08T06:20:42Z" finished-at="2018-11-08T06:21:32Z">
+        </test-method> <!-- main -->
+        <test-method status="PASS" signature="skip()[pri:0, instance:Chrome@e320068]" name="skip" is-config="true" duration-ms="30967" started-at="2018-11-09T06:51:41Z" finished-at="2018-11-09T06:52:12Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Agent -->
-        <test-method status="PASS" signature="Admin()[pri:1, instance:Real_Estate_Script@57a78e3]" name="Admin" duration-ms="30826" started-at="2018-11-08T06:21:32Z" finished-at="2018-11-08T06:22:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Admin -->
-        <test-method status="PASS" signature="User()[pri:2, instance:Real_Estate_Script@57a78e3]" name="User" duration-ms="38688" started-at="2018-11-08T06:22:03Z" finished-at="2018-11-08T06:22:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- User -->
-        <test-method status="PASS" signature="Admin1()[pri:3, instance:Real_Estate_Script@57a78e3]" name="Admin1" duration-ms="18634" started-at="2018-11-08T06:22:41Z" finished-at="2018-11-08T06:23:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Admin1 -->
-        <test-method status="PASS" signature="close()[pri:0, instance:Real_Estate_Script@57a78e3]" name="close" is-config="true" duration-ms="151" started-at="2018-11-08T06:23:00Z" finished-at="2018-11-08T06:23:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- Real_Estate_Script -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- skip -->
+      </class> <!-- Chrome -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
