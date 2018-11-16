@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
@@ -15,14 +15,14 @@ import org.testng.annotations.Test;
 
 public class Real_Estate_Script {
 	
-	WebDriver driver = new ChromeDriver();
+	WebDriver driver=new EdgeDriver();
 
 
 	@BeforeTest
    
 	public void Agent_Login() throws InterruptedException {
     	
-    	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
 		driver.manage().window().maximize();
 		
 		driver.get("http://real-estate.itechscripts.com");
@@ -202,7 +202,7 @@ public class Real_Estate_Script {
 		@Test(priority=1)
         public void Admin() throws InterruptedException {
         	
-        	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+			System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
     		driver.manage().window().maximize();
     	
     		driver.get("http://real-estate.itechscripts.com/admin");
@@ -246,7 +246,7 @@ public class Real_Estate_Script {
 			@Test(priority=2)
             public void User() throws InterruptedException {
             
-            	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+				System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
         		driver.manage().window().maximize();
         	
         		driver.get("http://real-estate.itechscripts.com");
@@ -370,7 +370,7 @@ public class Real_Estate_Script {
 			@Test(priority=3)
 	        public void Admin1() throws InterruptedException {
 	        	
-	        	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+				System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
 	    		driver.manage().window().maximize();
 	    	
 	    		driver.get("http://real-estate.itechscripts.com/admin");

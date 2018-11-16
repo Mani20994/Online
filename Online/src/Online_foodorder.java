@@ -6,21 +6,21 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Online_foodorder {
 	
-WebDriver driver=new ChromeDriver();
+	WebDriver driver=new EdgeDriver();
 
 
 	@BeforeTest
 	
 	public void Admin_Login() throws InterruptedException, IOException {
-	
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		
+		System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
 		driver.manage().window().maximize();
 	
 		driver.get("https://www.demo.iscripts.com/netmenus/mrml/admin");
@@ -247,14 +247,7 @@ WebDriver driver=new ChromeDriver();
 			driver.findElement(By.xpath("//a[@href='https://www.demo.iscripts.com/netmenus/mrml/cms?section=restaurant']")).click();
 			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
 			
-			//Operations
-			/*//View
-			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[9]/a[1]/img[1]")).click();
-			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;
-
-			//close
-			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[3]/a[1]")).click();
-			driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS) ;*/
+			
 			//Edit the restaurant details
 			driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[3]/td[9]/a[2]/img[1]")).click();
 			driver.manage().timeouts().implicitlyWait(8,TimeUnit.SECONDS) ;
@@ -287,7 +280,7 @@ WebDriver driver=new ChromeDriver();
 	
 	@Test(priority=1)
 	public void search_restaurant() throws InterruptedException, IOException {
-	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
 	
 	driver.manage().window().maximize();
 	
@@ -312,11 +305,11 @@ WebDriver driver=new ChromeDriver();
 	driver.findElement(By.xpath("//input[@class='textfield ui-autocomplete-input']")).sendKeys("Chicago");
 	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 //Enter Restaurant name, cuisine, food name, food category
-	driver.findElement(By.xpath("//div[@class='col-md-6']//input[@id='search_keyword']")).sendKeys("Brew");
+	driver.findElement(By.xpath("//div[@class='col-md-6']//input[@id='search_keyword']")).sendKeys("Big Basket Restaurant");
 	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 //Click on Search
 	driver.findElement(By.xpath("//input[@id='Submit']")).click();
-	driver.manage().timeouts().implicitlyWait(8,TimeUnit.SECONDS);
+	Thread.sleep(10000);
 	
 	
 //Big Basket Restaurant
@@ -381,8 +374,8 @@ WebDriver driver=new ChromeDriver();
 	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 	
 //Back to Home
-	driver.findElement(By.xpath("//a[contains(text(),'Back to Home')]")).click();
-	driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+	//driver.findElement(By.xpath("//a[contains(text(),'Back to Home')]")).click();
+	//driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
 	
 //Logout
 	driver.findElement(By.xpath("//a[contains(text(),'Log Out')]")).click();
@@ -394,20 +387,14 @@ WebDriver driver=new ChromeDriver();
 	
 	@Test(priority=2)
 	public void view_order() throws InterruptedException, IOException {
-	System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		System.setProperty("webdriver.edge.driver", "‪C:\\MicrosoftWebDriver.exe");
 	
 	driver.manage().window().maximize();
 
 	driver.get("https://www.demo.iscripts.com/netmenus/mrml/admin");
 	driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS) ;
 	    
-//Enter E-mail
-		driver.findElement(By.xpath("//input[@id='username']")).sendKeys("admin");
-//Password
-		driver.findElement(By.xpath("//input[@id='inputPassword']")).sendKeys("admin");
-//button
-		driver.findElement(By.xpath("//button[@value='submit']")).click();
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+
 		
 //Restaurant details
 // Click on Restaurant module

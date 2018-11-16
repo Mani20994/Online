@@ -3,16 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Real_Estate_Script">
+      <class name="parallelTest.CrossBrowserScript">
         <methods>
-          <include name="Agent"/>
-          <include name="Admin1"/>
-          <include name="User"/>
-          <include name="Admin"/>
-          <include name="close"/>
-          <include name="Agent_Login"/>
+          <include name="setup"/>
+          <include name="testParameterWithXML"/>
         </methods>
-      </class> <!-- Real_Estate_Script -->
+      </class> <!-- parallelTest.CrossBrowserScript -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
